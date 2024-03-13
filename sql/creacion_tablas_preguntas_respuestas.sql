@@ -42,9 +42,6 @@ INSERT INTO `categorias` (`id_categoria`, `nombre`, `descripcion`, `edad`, `prec
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id_categoria`),
   ADD UNIQUE KEY `nombre` (`nombre`);
---
--- Estructura de tabla para la tabla `colaboradores`
---
 
 --
 -- Estructura de tabla para la tabla `inscripciones`
@@ -107,41 +104,28 @@ ALTER TABLE `inscripciones`
 -- Estructura de tabla para la tabla `posiciones`
 --
 
-  CREATE TABLE `posiciones` (
+CREATE TABLE `posiciones` (
     `dorsal` smallint UNSIGNED NOT NULL PRIMARY KEY,
     `tiempo` smallint UNSIGNED NOT NULL,
     `ritmo` smallint UNSIGNED DEFAULT NULL,
     `general` smallint DEFAULT NULL,
     `masculino` smallint DEFAULT NULL,
     `femenino` smallint DEFAULT NULL,
-    `id_categoria` tinyint UNSIGNED NOT NULL,
-    FOREIGN KEY(dorsal) REFERENCES inscripciones(dorsal),
-    FOREIGN KEY(id_categoria) REFERENCES categorias(id_categoria)
-  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+    `id_categoria` tinyint UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
-INSERT INTO `posiciones` (`dorsal`, `tiempo`, `ritmo`, `general`, `masculino`, `femenino`, `id_categoria`) VALUES
-(101, 3000, 400, 1, 1, NULL, 1),
-(102, 3200, 410, 2, NULL, 1, 1),
-(103, 3400, 420, 3, 1, NULL, 1),
-(104, 3000, 400, 1, NULL, 1, 2),
-(105, 3200, 410, 2, 1, NULL, 2),
-(106, 3400, 420, 3, NULL, 2, 2),
-(107, 3000, 400, 1, 1, NULL, 3),
-(108, 3200, 410, 2, NULL, 1, 3),
-(109, 3400, 420, 3, 2, NULL, 3),
-(110, 3000, 400, 1, NULL, 1, 4),
-(111, 3200, 410, 2, 1, NULL, 4),
-(112, 3400, 420, 3, NULL, 2, 4),
-(113, 3000, 400, 1, 1, NULL, 5),
-(114, 3200, 410, 2, NULL, 1, 5),
-(115, 3400, 420, 3, 2, NULL, 5),
-(116, 3000, 400, 1, NULL, 1, 6),
-(117, 3200, 410, 2, 1, NULL, 6),
-(118, 3400, 420, 3, NULL, 2, 6),
-(119, 3000, 400, 1, 1, NULL, 7),
-(120, 3200, 410, 2, 2, NULL, 7),
-(121, 3400, 420, 3, NULL, 1, 7),
-(122, 3000, 400, 1, 1, NULL, 8),
-(123, 3200, 410, 2, NULL, 1, 8),
-(124, 3400, 420, 3, 2, NULL, 8);
+ALTER TABLE `posiciones`
+ADD CONSTRAINT `FK_posiciones_inscripciones` FOREIGN KEY (`dorsal`) REFERENCES `inscripciones` (`dorsal`),
+ADD CONSTRAINT `FK_posiciones_categorias` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`);
+
+
+INSERT INTO `posiciones` (`dorsal`, `tiempo`, `ritmo`, `general`, `masculino`, `femenino`, `id_categoria`)
+VALUES
+(65, 1000, 5, 1, 1, NULL, 2),
+(1325, 1500, 6, 2, 2, NULL, 2),
+(2547, 2000, 7, 3, 3, NULL, 2),
+(9876, 2500, 8, 4, NULL, 1, 2),
+(1236, 3000, 9, 5, NULL, 2, 4),
+(5555, 3500, 10, 6, 3, NULL, 4),
+(5790, 4000, 11, 7, 4, NULL, 4);

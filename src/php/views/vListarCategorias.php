@@ -18,6 +18,6 @@
         </tbody>
 
     </table>
-    <a href="../../src/php/index.php?c=CMarcas&m=exportarPDF" id="volverAlMenu" target="_blank">Exportar PDF</a>
+    <a href="index.php?c=cmarcas&m=exportarPDF" id="volverAlMenu" target="_blank">Exportar PDF</a>
 
 </div>

@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #af4c99, #2196F3) fixed; /* Fixed background gradient */
+    background: linear-gradient(to bottom, #ffa3eb, #8dceff) fixed; /* Fixed background gradient */
     background-size: cover; /* Cover the entire viewport */
 }
 
@@ -59,7 +59,7 @@ table tr:hover {
 }
 
 h1 {
-    color: #fff; /* White text color for h1 */
+    color: #000000; /* White text color for h1 */
     text-align: center; /* Center align h1 */
     margin-top: 0; /* Remove top margin for h1 */
     padding-top: 20px; /* Add padding on top for h1 */
